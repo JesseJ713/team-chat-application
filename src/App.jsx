@@ -1,5 +1,5 @@
 import { ChatEngine } from 'react-chat-engine';
-import ChatFeed from './components/chatFeed/ChatFeed';
+import ChatFeed from './components/ChatFeed';
 
 import './app.css';
 
