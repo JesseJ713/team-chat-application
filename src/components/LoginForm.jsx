@@ -5,8 +5,20 @@ export default function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const authObject = {
+      'Project-ID': '2008af8f-7cb9-4777-9a96-bebb9e86a45d',
+      'User-Name': username,
+      'User-Secret': password,
+    };
+
+    try {
+      await axios.get('https://api.chatengine.io/chats', {
+        headers: authObject,
+      });
+    } catch (err) {}
   };
 
   return (
