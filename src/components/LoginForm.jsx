@@ -4,6 +4,7 @@ import axios from 'axios';
 export default function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +24,11 @@ export default function LoginForm() {
       localStorage.setItem('password', password);
 
       window.location.reload();
-    } catch (err) {}
+    } catch (err) {
+      setError('Incorrect Credentials. Please try again.');
+      setUsername('');
+      setPassword('');
+    }
   };
 
   return (
@@ -52,6 +57,7 @@ export default function LoginForm() {
               <span>Start Chatting!</span>
             </button>
           </div>
+          <h2 className='error'>{error}</h2>
         </form>
       </div>
     </div>
