@@ -18,7 +18,11 @@ export default function ChatFeed(props) {
       return (
         <div key={`msg_${index}`} style={{ width: '100%' }}>
           <div className='message-block'>
-            {isMyMessage ? <MyMessage /> : <TheirMessage />}
+            {isMyMessage ? (
+              <MyMessage message={message} />
+            ) : (
+              <TheirMessage message={message} lastMessageKey={lastMessageKey} />
+            )}
           </div>
           <div
             className='read-receipts'
