@@ -15,6 +15,11 @@ const App = () => {
       userName={localStorage.getItem('username')}
       userSecret={localStorage.getItem('password')}
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+      onNewMessage={() =>
+        new Audio(
+          'https://chat-engine-assets.s3.amazonaws.com/click.mp3'
+        ).play()
+      }
     />
   );
 };
